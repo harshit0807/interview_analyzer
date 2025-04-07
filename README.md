@@ -1,111 +1,59 @@
-# interview_analyzer
-a system where an interviewer can input candidate's answer and an AI model analyze the responses for correctness, sentiment, and keywords relvence
+# InterviewAnalyzer
 
-#  Answer Analyzer
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
 
-This is a full-stack AI-powered web application that analyzes candidate interview answers based on:
+## Development server
 
--  **Correctness** – Uses semantic similarity via SBERT (MiniLM)
--  **Sentiment Analysis** – Using TextBlob
--  **Keyword Extraction** – Using spaCy
+To start a local development server, run:
 
-
----
-
-##  Project Structure
-
-ai-interview-analyzer/ ├── ai-engine/ # FastAPI Backend │ ├── python_script.py │ ├── backend/ # Node.js Server │ └── server.js │ ├── frontend/ # Angular App │ ├── app.component.ts │ ├── app.component.html │ └── ... (other Angular files) │ └── README.md
-
-
-##  Tech Stack
-
-- **Frontend**: Angular (Standalone components, HttpClient)
-- **Backend**: Node.js + Express (acts as a bridge)
-- **AI Engine**: FastAPI (Python) + spaCy + TextBlob + SentenceTransformers (SBERT)
----
-
-##  Setup Instructions
-
-
-1. cd interview-analyzer
-
-
-2. FastAPI python_script Setup
-cd python.script
-python -m venv venv
-source venv/bin/activate        
-pip install -r requirements
-python -m spacy download en_core_web_sm
-python -m textblob.download_corpora
-uvicorn main:app --reload --port 8000
-API will be available at: http://localhost:8000/analyze
-
-3. Node.js Server Setup
-
-cd ../backend
-npm install
-node server.js
-Runs on http://localhost:3000 and forwards requests to FastAPI.
-
-4. Angular Frontend Setup
-
-cd ../frontend
-npm install
+```bash
 ng serve
-Visit the app at: http://localhost:4200
+```
 
- How It Works
-User enters a question and answer in Angular UI.
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-Angular sends a POST request to Node.js backend (/api/analyze).
+## Code scaffolding
 
-Node.js forwards data to FastAPI AI engine (/analyze).
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-FastAPI:
+```bash
+ng generate component component-name
+```
 
-Calculates similarity using SBERT.
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-Analyzes sentiment with TextBlob.
+```bash
+ng generate --help
+```
 
-Extracts keywords via spaCy.
+## Building
 
-The result is returned and displayed in the frontend.
+To build the project run:
 
- Sample API Usage
-POST /analyze
-Request:
-{
-  "question": "What is supervised learning?",
-  "answer": "Supervised learning uses labeled data to train a model."
-}
-Response:
+```bash
+ng build
+```
 
-{
-  "correctness_score": 91,
-  "sentiment": "Positive",
-  "keywords": ["supervise", "learn", "model", "label", "data"]
-}
- FastAPI Dependencies (requirements.txt)
-fastapi
-uvicorn
-spacy
-textblob
-sentence-transformers
-torch
-Install with:
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
+## Running unit tests
 
-pip install -r requirements.txt
- Node.js Dependencies
-Install in backend/:
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-npm install express axios cors
- Angular Notes
-HttpClient is used to send requests to Node backend
+```bash
+ng test
+```
 
-Standalone component (app.component.ts) is used
+## Running end-to-end tests
 
-Results are displayed after analysis
+For end-to-end (e2e) testing, run:
 
- Author
-Made with  by [Harshit]
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
