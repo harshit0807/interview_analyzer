@@ -22,7 +22,6 @@ ai-interview-analyzer/ ├── ai-engine/ # FastAPI Backend │ ├── pyth
 - **Frontend**: Angular (Standalone components, HttpClient)
 - **Backend**: Node.js + Express (acts as a bridge)
 - **AI Engine**: FastAPI (Python) + spaCy + TextBlob + SentenceTransformers (SBERT)
-
 ---
 
 ##  Setup Instructions
